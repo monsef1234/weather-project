@@ -26,7 +26,7 @@ export default defineConfig({
       },
     }),
   ],
-  define: { 'process.env': {} },
+  define: { __APP_ENV__: process.env.VITE_API_KEY },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
