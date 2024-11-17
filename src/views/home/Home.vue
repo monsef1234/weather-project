@@ -117,7 +117,7 @@ export default defineComponent({
       if (value.length) {
         axios
           .get<SearchResult[]>(
-            `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${
+            `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${
               import.meta.env.VITE_API_KEY
             }&q=${value}`
           )
@@ -161,7 +161,7 @@ export default defineComponent({
         (pos) => {
           axios
             .get<GeopositionResult>(
-              `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${
+              `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${
                 import.meta.env.VITE_API_KEY
               }&q=${pos.coords.latitude},${pos.coords.longitude}`
             )
