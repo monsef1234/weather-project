@@ -267,7 +267,7 @@ export default defineComponent({
 
       axios
         .get<CurrentWeather[]>(
-          `http://dataservice.accuweather.com/currentconditions/v1/${
+          `https://dataservice.accuweather.com/currentconditions/v1/${
             this.$route.params.key
           }?apikey=${import.meta.env.VITE_API_KEY}`
         )
@@ -287,7 +287,7 @@ export default defineComponent({
 
       axios
         .get<HourlyWeather[]>(
-          `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
+          `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${
             this.$route.params.key
           }?apikey=${import.meta.env.VITE_API_KEY}`
         )
@@ -307,7 +307,7 @@ export default defineComponent({
 
       axios
         .get<FiveDayForecast>(
-          `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${
+          `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${
             this.$route.params.key
           }?apikey=${import.meta.env.VITE_API_KEY}`
         )
