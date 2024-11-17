@@ -1,34 +1,39 @@
 /**
  * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
+ * Bootstraps Vue application with Vuetify and other plugins
  */
 
-// Plugins
-import { registerPlugins } from '@/plugins'
-
-// Styles
-import "@/assets/css/global.scss"
-
-// Components
+// Vue Core
+import { createApp } from 'vue'
 import App from './App.vue'
+
+// Router
+import router from './router'
+
+// State Management
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
-// Composables
-import { createApp } from 'vue'
-import router from './router'
+// Event Management
 import { TinyEmitter } from "tiny-emitter"
 
-const app = createApp(App)
-const pinia = createPinia()
+// Plugins and Styles
+import { registerPlugins } from '@/plugins'
+import "@/assets/css/global.scss"
+
+// Initialize Event Bus
 export const emitter = new TinyEmitter()
 
+// Initialize Pinia
+const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
-registerPlugins(app)
+// Create and Configure App
+const app = createApp(App)
 
-app.use(pinia)
-app.use(router)
-app.mount('#app')
+registerPlugins(app)
+app
+  .use(pinia)
+  .use(router)
+  .mount('#app')
 
