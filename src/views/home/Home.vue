@@ -114,6 +114,7 @@ export default defineComponent({
   methods: {
     newSearches(value: string) {
       this.loading = true;
+      this.savedLocationsStore.setSearch(value);
       if (value.length) {
         axios
           .get<SearchResult[]>(

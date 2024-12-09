@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 export const useSavedLocationsStore = defineStore("savedLocations", {
   state: () => ({
     savedLocations: [] as SavedLocation[],
+    search: "" as string,
   }),
 
   actions: {
@@ -15,6 +16,10 @@ export const useSavedLocationsStore = defineStore("savedLocations", {
       this.savedLocations = this.savedLocations.filter(
         (location) => location.Key !== key
       );
+    },
+
+    setSearch(search: string) {
+      this.search = search;
     },
   },
 
